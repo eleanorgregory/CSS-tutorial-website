@@ -1,0 +1,352 @@
+/** Written for CSS Level 3 **/
+
+/** GENERAL FORMATTING **/
+/** Applies to all sizes of screen **/
+
+body { 	margin-bottom: 80px;
+		min-width: 300px;
+}
+
+
+.header {	background-color: #0D4A4D;
+			color: white;
+			font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+
+}
+
+/* Style the main body within which content will be loaded */
+.main {	font-family: Geneva, Tahoma, Verdana, sans-serif;
+		color: #417E80;
+		font-size: 20px;
+}
+
+.main h3 { color: #003133; 
+		font-size: 23px;
+}
+
+.main h2 {	color: #003133;
+			background-image: url(Images/header-point.png);
+			background-repeat: no-repeat; /* Stop the background image from tiling */
+			background-position: left;
+			padding-left: 20px; /* Create room for the added background image so the head does not overlap it */
+			font-size: 25px;
+			margin-bottom: 0px;
+ }
+
+ 
+ /* Style the included sections of code */
+.code {	font-size: 20px; 
+		text-align: center; 
+}
+
+/* Override the main styling for the sections of code used in the review quiz questions to prevent large styling */
+#excode { font-size: 14px;
+		  line-height: 3px;
+}
+
+/* Style the links included in the content (normal and visited) */
+a { color: #0D4A4D; }
+
+a:visited { color: #003133; }
+
+
+/** TAB FORMATTING FOR CSS SELECTORS **/
+/* Structure adapted from W3c School's tutorial http://www.w3schools.com/howto/howto_js_tabs.asp */
+
+/* Override the output used in the demonstration to have a different text colour, making it and the differences stand out more */
+ .changingtext { color: black; }
+
+/* Style the extract of code used for comparison */
+#changingcode p { color: #003133;
+			font-size: 14px;
+			line-height: 3px;
+			font-family: Courier New;
+} 
+
+/* Style the list to be used as the tabs */
+ ul.tab {	list-style-type: none; /* Remove the bullet points from the list elements */
+			margin: 0;
+			padding: 0;
+			overflow: hidden; /* Prevent scrolling */
+			border: 1px solid #67989A;
+			background-color: #417E80;	
+}
+
+/* Align the list items side by side */
+ ul.tab li { float: left; }
+
+/* Style the links inside the list items to make them into tabs */
+ ul.tab li a {	display: inline-block;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none; /* Remove the underline from the clickable links */
+			transition: 0.3s; /* Add a delay to the change in colour when hovered over to make it seem gradual */
+			font-size: 17px;
+			color: white;
+}
+
+
+/* Change background color of links on hover */
+ ul.tab li a:hover { background-color: #0D4A4D; }
+
+/* For the 'current' tab */
+ ul.tab li a:focus, .active { background-color: #67989A; }
+
+/* Style the tab content */
+ .tabcontent {	display: none; /* Initially hide the content inside the tabs (until it's clicked) */
+				padding: 6px 12px;
+				border: 1px solid #67989A;
+				border-top: none;
+}
+
+/* Apply the red colouring to the appropriate sections for the demo */
+/* Styling here different than what would actually be applied to work around the structure of the demo */
+ #universal .thisBox  *{ color: red; }
+
+ #class .special { color: red; }
+
+ #id .a { color: red; }
+
+ #type .thisBox p { color: red; }
+
+ #descendant .thisBox p { color: red }
+
+ #child .thisBox > p { color: red; }
+ 
+ #sibling h3 ~ p { color: red; }
+ 
+ #adsibling h3 + p { color: red; }
+
+ #attribute input[type=button] { background-color: red;}
+ 
+ 
+ 
+ /** QUIZ ANSWER ACCORDION **/
+/* Structure adapted from W3C School's tutorial http://www.w3schools.com/howto/howto_js_accordion.asp */
+
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {	background-color: #67989A;
+					color: white;
+					padding: 18px;
+					width: 100%; /* Ensure the accordion stretches across the available width of the page and flexes with size changes */
+					text-align: left;
+					border: none;
+					outline: none;
+					transition: 0.3s; /* Add a delay to the change in colour when hovered over to make it seem gradual */
+					font-family: Geneva, Tahoma, Verdana, sans-serif;
+					font-size: 18px;
+}
+
+/* Add a background color to the button if it is clicked on (Javascript adds the active class) or hovered over */
+button.accordion.active, button.accordion:hover { background-color: #417E80; }
+
+/* Style the accordion panels that hold the content. */
+div.panel {	padding: 0 18px;
+			background-color: white;
+			display: none; /* Initially hide the content inside the panel until it's clicked */
+			border: 1px solid #67989A; /* Apply and style a border to the outside of the tab panels so the content appears contained */
+}
+
+
+/* Style the panel content when it is clicked to be shown. */
+div.panel.show { display: block !important; }
+
+
+
+/* Position the images and ensure their captions remains underneath */
+#image { display: block;
+		text-align: center; 
+}
+
+#image #caption { font-size: 14px; }
+
+
+/** NAVIGATION ARROWS **/
+
+/** Hides the arrows until their Javascript functions are called so they do not appear if JS is not enabled. **/
+#footer { display: none; }
+
+/* Ensure the arrows do not take up too much space or move content by reducing them to the exact size of the arrow images used */
+.left, .right {	width: 70px;
+				height: 78px; 
+				margin-right: 0px;
+				float: left;
+}
+
+/* Push the right arrow over to the right of the page */
+.right { float: right; }
+
+/* Move the arrows to the bottom of the screen and space them out according to the browser window size */
+.left {	bottom: 0px;
+		left: 200px;
+}
+
+.right { bottom: 0px;
+		right: 0px;
+ }
+
+
+/** STYLING ONLY APPLIES WHEN BROWSER WINDOW IS WIDER THAN 700PX **/
+@media only screen and (min-width: 700px){
+
+/* HEADER */
+	
+.header {	height:70px;
+			position:fixed; /* Fix the header to the top of the viewport so it remains as part of the frame even with scrolling */
+			/* Ensure header is positioned from the very top left corner of the window */
+			top:0;
+			left:0;
+			width:100%; /* Ensure header always stretches across the entire available screen */
+}
+
+/* Align the two parts of the title side by side */
+.header h1,h2 { display: inline-block; }
+
+.header h2 { float: right; /* Position the subtitle over the right side of the header */
+			padding-right: 20px; /* Ensure the title does not touch the very edge of the window */
+		
+}
+
+/* Ensure the title does not touch the very edge of the window */
+.header h1 { padding-left: 20px; }
+
+
+/* Ensure the header and sidebar cling to the edges of the page */
+.bodywrap {	margin-top:70px;
+			margin-left:-8px;
+}
+
+/** SIDEBAR MENU **/
+
+.menu {	width:200px;
+		position:fixed; /* Fix the sidebar to the side of the screen so it remains as part of the frame even with scrolling */
+		background-color: #236467;
+		overflow-y: auto; /* Allow a scrollbar to appear if the browser window gets small enough that all options cannot be displayed at once */ 
+		text-align: center;
+		top: 70px; /* Position the sidebar underneath the fixed header (positioning matches height of header) */
+		bottom: 0; /* Ensure the sidebar always stretches to the bottom of any screen (100% not used as scrollbar is affected) */ 
+}
+
+/* Style the list that will become the menu */
+.menu ul {	margin-top: 0px; /* Have the menu options start from right underneath the header, rather than there being a small gap */
+			padding: 0px; /* Prevent the menu options from not being centered in the sidebar due to default padding */
+}
+
+/* Style the text that makes up the list/menu options */
+.menu li {	list-style-type: none; /* Remove the bullet points from the list items */ 
+			font-family: Geneva, Tahoma, Verdana, sans-serif;
+			/* Space out the links from each other */
+			padding-top: 10px;
+			padding-bottom: 10px;
+}
+
+/* Apply styling to the menu options when hovered over */
+.menu li:hover {	background-color: #67989A; 
+				transition: 0.3s; /* Add a delay to the change in colour when hovered over to make it seem gradual */
+}
+
+/* Apply different styling to the menu option currently marked as being the content viewed */
+.menu  #current {	background-color: #0D4A4D; 
+				color: white;
+}
+
+/* Style the links in the menu options */
+.menu a {	color: white;
+			text-decoration: none;	/* Remove the underline from the clickable links */
+}
+
+/* Apply different styling for when a link has been clicked before */
+.menu a:visited {	color: white; /* Same colour as the default menu to prevent it changing style upon links being clicked */
+					text-decoration: none; /* Remove the underline from the clickable links */
+}
+
+/* Apply different styling to list items to be headers rather than links */
+.menu .menuheader {	color: white; 
+					background-color: #417E80;
+					font-size: 18px;
+}
+
+/** To prevent menu headers changing colour like the rest of the links when hovered over. **/
+.menu .menuheader:hover { background-color: #417E80; }
+
+
+/* Position the main content within the header and sidebar frame */
+/* Margins push content into the frame and also leave room for the navigational arrows to slide up the side if scrolling needed */
+.main {	margin-left:280px;  
+		margin-right:80px;
+		padding-top: 10px;	
+}
+
+
+/* Fix the navigational arrows to the bottom of the screen so they always remain present there even with scrolling */ 
+.left, .right { position: fixed; }
+
+
+
+}
+
+ /** STYLING ONLY APPLIES WHEN BROWSER WINDOW IS SMALLER THAN 700PX **/
+@media only screen and (max-width: 699px) {
+
+/* Style the header */
+.header {	background-color: #236467;
+			padding: 20px 0px 20px 10px;
+			color: white;
+			text-align: center;
+}
+
+/* Hide the menu headers from being displayed as they do not fit with the smaller layout */ 
+.menu .menuheader { display: none; }
+
+
+/* SIDEBAR MENU */
+
+.menu {	text-align: center;
+		list-style-type: none; /* Remove the bullet points from the list items */
+		margin-top: 10px;
+}
+
+/* Style the 'blocks' for the menu options */
+.menu ul {	margin-top: 5px;
+			padding: 0px;
+}
+
+/* Style the text that makes up the list/menu options */
+.menu li {	margin-bottom: 5px;
+			font-family: Geneva, Tahoma, Verdana, sans-serif;
+			background-color: #417E80;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			width: 30%; /* Ensure each link block always takes up 30% of the available space (leads to max three links on each row always) */
+			display: inline-block; /* Display the links side by side to each other */
+			font-size: 12px;
+}
+
+/* Apply styling to the menu options when hovered over */
+.menu li:hover {	background-color: #67989A; 
+				transition: 0.3s; /* Add a delay to the change in colour when hovered over to make it seem gradual */
+}
+
+/* Apply different styling to the menu option currently marked as being the content viewed */
+.menu  #current {	background-color: #0D4A4D; 
+				color: white;
+}
+
+/* Style the links in the menu options */
+.menu a {	color: white;
+			text-decoration: none;	/* Remove the underline from clickable links */
+}
+
+/* Apply different styling for when a link has been clicked before */
+.menu a:visited {	color: white; 
+					text-decoration: none; /* Remove the underline from clickable links */
+}
+
+
+
+
+				
+
+
+}
+

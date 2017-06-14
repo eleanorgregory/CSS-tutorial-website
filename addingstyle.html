@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>CSC1026 Tutorial</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="main.css"/>
+<script type="text/javascript" src="Javascript/addingstylecontent.js"></script>
+<script type="text/javascript" src="Javascript/contentchangefunctionality.js"></script>
+</head>
+<body>
+
+<div class="header">
+<h1>CSC1026 Tutorial Site</h1>
+<h2>CSS Essentials</h2>
+</div>
+
+<div class="bodywrap">
+<div class="menu">
+<ul>
+<li class="menuheader">Internal Links</li>
+<li><a href="home.html">Home</a></li>
+<li><a href="cssintro.html">Intro to CSS</a></li>
+<li><a href="cssvariations.html">CSS Variations</a></li>
+<li id="current">Adding Style</li>
+<li><a href="cssselectors.html">CSS Selectors</a></li>
+<li><a href="reviewquiz.html">Review Quiz</a></li>
+<li class="menuheader">External Links</li>
+<li><a href="http://www.ncl.ac.uk/">Newcastle University</a></li>
+<li><a href="http://www.ncl.ac.uk/computing/">NCL Computer Science</a></li>
+<li><a href="http://www.ncl.ac.uk/computing/current/module/CSC1026">CSC1026 Details</a></li>
+</ul>
+
+
+
+</div>
+
+<div class="main">
+
+<h2>Adding Style</h2>
+
+<div id="middle">
+
+<!-- Only displayed if Javascript not enabled on the browser -->
+<noscript>
+<h3>How does CSS help a webpage?</h3>
+<p>Style enhances the user experience- plain web pages are not interesting for the user to read. Additional aesthetic and meaning added by styling enhance the user experience, and it is also an oppertunity for creative expression. However, care must be taken to not fill the page with 'noise' by overstyling it, as it will start taking away from the message.</p>
+<p id="image"><img src="Images/nocss.png" alt="A table showing how the specificity of a rule can be determined."/><br/>
+<span id="caption">What this page looks like without CSS styling- not very pretty nor easy to look at!</span>
+</p>
+
+<h3>How is style added?</h3>
+<p>Style sheets specify formatting rules, and all style sheets have the same syntax. No matter the way the CSS styling is applied, its rules are written in the same way. Rules consist of selectors and declarations; selectors indentify the HTML patterns to apply the styling to, and declarations determine what should be done. </p>
+<div class="code"><p><code>selector { style-property : value; }</code></p></div>
+<p>Multiple declarations are seperated by a semi colon, and all declarations are always included in {...}.</p>
+
+<p>The different types of styling are as follows, in order of most to least specfic.</p>
+
+<h3>Inline styling</h3>
+<p>CSS styling can be added to a line of HTML inside its tags as shown below. This is the most specific type of styling, and can be useful in overcoming a specifity issue.</p>
+<div class="code"><code>&lt;p style="background-color:blue"&gt;Hello&lt;/p&gt;</code></div>
+<p>However inline styling should be avoided if possible, as it mixes style and structure which is aimed to be avoided with HTML and CSS existing. You also have to define the style over and over should you want to use it outside of just that specific line.</p> 
+
+<h3>Advantages of inline styling</h3>
+<p>Due to its high specificity inline styling is good for 'quick fixes' to styling. A style rule can be applied inline in the HTML to quickly and immediately add the style.</p>
+<p>The use of inline styling is also useful on smaller websites such as blogs. The lack of necessary extra files to host (such as with external style sheets) helps the user and the service provider.</p>
+<p>Similarly, use of inline styling lowers the number of HTTP requests that have to be made, so the site will also load faster.</p>
+
+<h3>Disadvantages of inline styling</h3>
+<p>Because they are the most specific type of styling, any inline style rules could override other CSS that were not wanted or meant to be overridden.</p>
+<p>To apply a style rule to every element this way, the style rule must be added to <em>every</em> tag. So to style every paragraph the same way, the same inline rule would have to be applied to every paragraph tag. This creates a lot of work both in writing and maintaining the site.</p>
+<p>Only the 'direct' state of the element can be styled inline. Styling a link inline would only allow you to style the link itself; not any other attributes such as when it is hovered over or when it is visited.</p>
+
+<hr/>
+
+<h3>Internal style sheets</h3>
+<p>For internal styling, the CSS rules are included in the HTML markup document in style tags, included in the head of the page. This is one degree of separation, and is acceptable for a one page site as it can define CSS styling for an entire page.</p>
+<div class="code"><code>&lt;style type="text/css"&gt; p { font-style:italic }&lt;/style&gt;</code></div>
+<p>This way the style for an entire page can be easily changed even after the whole page has been written and structured.</p>
+
+<h3>Advantages of internal style sheets</h3>
+<p>Other states ('pseudo' elements) of elements can be styled with internal styling. For example it would be possible to style the visited and hover appearances of a link, as well as just the link itself.</p>
+<p>Internal styles do not need to be applied to every instance of the element, saving designing and maintainance time.</p>
+
+<h3>Disadvantages of internal style sheets</h3>
+<p>Internal styling cannot be used without repeating the same rules over and over if you want to apply the styling to multiple webpages at once.</p>
+<p>Webpages with internal CSS styling also have larger file sizes, due to extending the length of the source of the page with all the included rules.</p>
+
+<hr/>
+
+<h3>External style sheets</h3>
+<p>External style sheets are stored in separate .css files, which are then linked to the document they are to be applied to in style tags.</p>
+<div class="code"><code>&lt;link rel="stylesheet" type="text/css" href="mystyle.css"/&gt;</code></div>
+<p>Multiple sheets can be linked to a page.</p> 
+<p>External CSS sheets can define the style for entire websites, and you only need to link the sheet in the page that is to be styled.</p>
+
+<h3>Advantages of external style sheets</h3>
+<p>Styling can be controlled for multiple documents at once, as multiple webpages can easily and quickly import the same sheet and have all its styling applied.</p>
+<p>Similarly site maintenance and design is made simpler as to change the styling across all pages applying it, only one document needs to be edited.</p>
+
+<h3>Disadvantages of external style sheets</h3>
+<p>As the CSS in this case is a seperate file, the site requires an extra download to be able to import the styling. Not only does this take up more file space and download time, but if somehow left out of the download no styling will be applied at all.</p> 
+<p>External style sheets can also be considered unwieldly for small numbers of style rules, and not particularly necessary.</p>
+
+<hr/>
+
+<h2>How do CSS sheets work?</h2>
+<h3>All available styles for a page are combined as it loads</h3>
+<p>How an element actually appears on the webpage is a composite of all the appropriate style rules attributed to it, and links to <a href="cssselectors.html">CSS Selectors.</a></p>
+
+<h3>Conflicting property values are resolved by simple rules</h3>
+<ul>
+<li><strong>Source:</strong> User-specified styles are more specific, for example, user plugins for backgrounds or text colours.</li>
+<li><strong>Specificity:</strong> Selectors have different weightings of priority; styling applied to an ID is more specific than styling applied to a tag.</li>
+<li><strong>Order declared:</strong> If the selectors have the same specifity, then the 'last one wins'; inline styles are always more specific.</li>
+</ul>
+
+<p>The more specific a rule is, the greater priority its declarations have.</p>
+</noscript>
+
+
+
+</div>
+
+
+<div id="footer">
+<div class="left">
+<img id="l" src="Images/arrow-left.png" onclick="moveLeft()" alt="Go back"></img>
+
+</div>
+
+<div class="right">
+<img id="r" src="Images/arrow-right.png" onclick="moveRight()" alt="Go forward"></img>
+
+</div>
+</div>
+
+</div>
+</div>
+<script type="text/javascript">setup()</script>
+</body> 
+</html>

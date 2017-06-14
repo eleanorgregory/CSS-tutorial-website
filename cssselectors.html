@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>CSC1026 Tutorial</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<script type="text/javascript" src="Javascript/selectorcontent.js"></script>
+<script type="text/javascript" src="Javascript/contentchangefunctionality.js"></script>
+<script type="text/javascript" src="Javascript/selectordemo.js"></script>
+<link rel="stylesheet" type="text/css" href="main.css"/>
+</head>
+<body>
+
+<div class="header">
+<h1>CSC1026 Tutorial Site</h1>
+<h2>CSS Essentials</h2>
+</div>
+<div class="bodywrap">
+<div class="menu">
+<ul>
+<li class="menuheader">Internal Links</li>
+<li><a href="home.html">Home</a></li>
+<li><a href="cssintro.html">Intro to CSS</a></li>
+<li><a href="cssvariations.html">CSS Variations</a></li>
+<li><a href="addingstyle.html">Adding Style</a></li>
+<li id="current">CSS Selectors</li>
+<li><a href="reviewquiz.html">Review Quiz</a></li>
+<li class="menuheader">External Links</li>
+<li><a href="http://www.ncl.ac.uk/">Newcastle University</a></li>
+<li><a href="http://www.ncl.ac.uk/computing/">NCL Computer Science</a></li>
+<li><a href="http://www.ncl.ac.uk/computing/current/module/CSC1026">CSC1026 Details</a></li>
+</ul>
+</div>
+
+<div class="main">
+<h2>CSS Selectors</h2>
+
+
+<div id="middle">
+
+<!-- Only displayed if Javascript not enabled on the browser -->
+<noscript>
+<h3>What are CSS selectors?</h3> 
+<p>Selectors are patterns used to select HTML elements on a webpage that a defined style should be applied to.</p>
+
+<p>There are three basic types of selectors:</p>
+<ul>
+<li>Tag - matches all instances of that tag</li>
+<li>Class - matches all tags containing that class attribute</li>
+<li>ID - matches the <em>unique</em> tag containing that ID attribute</li>
+</ul>
+
+<p>These basic types of selector can be combined for higher specifity in styling, and there exists additional syntax and other operators for more precise control.</p>
+
+<p>Selectors should be combined with div and span tags in the HTML in order to build a framework for display.</p> 
+
+<hr/>
+
+<h3>What are the types of CSS selectors?</h3>
+
+<p>The examples below apply the same style rule (colouring the text red) to the below HTML markup.</p>
+
+
+
+<div id="changingcode">
+<p>&lt;div id="thisBox"&gt;</p>
+<p>&lt;p&gt;This is the first paragraph.&lt;/p&gt;</p>
+<p>&lt;ul&gt;</p>
+<p>&lt;li&gt;This is a list item.&lt;/li&gt;</p>
+<p>&lt;/ul&gt;</p>
+<p>&lt;div class="special"&gt;</p>
+<p>&lt;h3&gt;This is a subheading&lt;/h3&gt;</p>
+<p>&lt;p&gt;This is the second paragraph.&lt;/p&gt;</p>
+<p>&lt;p&gt;This is the third paragraph.&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div id="a"&gt;</p>
+<p>&lt;p&gt;This is the fourth paragraph.&lt;/p&gt;</p>
+<p>&lt;input type="button" value="Example Button"&gt;</p>
+<p>&lt;/div&gt;</p>
+</div>
+
+
+
+
+<h3>Universal</h3>
+
+<div id="universal">
+<div class="thisBox">
+<p>This is the first paragraph.</p>
+<ul>
+<li>This is a list item.</li>
+</ul>
+<div class="special">
+<h3>This is a subheading</h3>
+<p>This is the second paragraph.</p>
+<p>This is the third paragraph.</p>
+</div>
+<div class="a">
+<p>This is the fourth paragraph.</p>
+<input type="button" value="Example Button"/>
+</div>
+</div>
+
+<p><strong>Rule applied:</strong> <code> * { color: red }</code></p>
+<p>The universal selector indicates that every element on a page will receive the specified styling. It is denoted by a *.</p> 
+
+</div>
+
+<hr/>
+
+<h3>Class</h3>
+
+<div id="class">
+ 
+<div class="thisBox">
+<p>This is the first paragraph.</p>
+<ul>
+<li>This is a list item.</li>
+</ul>
+<div class="special">
+<h3>This is a subheading</h3>
+<p>This is the second paragraph.</p>
+<p>This is the third paragraph.</p>
+</div>
+<div class="a">
+<p>This is the fourth paragraph.</p>
+<input type="button" value="Example Button"/>
+
+</div>
+</div>
+
+<p><strong>Rule applied:</strong> <code> .special { color: red }</code></p>
+<p>A class selector applies the specified styling to all elements with the same class specified class attribute. Class selectors are denoted by a preceding dot.</p>
+<p>Classes are specified inside HTML tags, with their names decided by the writer: <code>&lt;div class="special"&gt;</code></p>
+<p>Multiple elements on a page with the same class is useful as styles can easily be reused and repetition is avoided. They are also very unspecific.</p>
+<p>HTML allows an element to be attributed to more than one class name.</p>
+
+</div>
+
+<hr/>
+
+<h3>ID</h3>
+<div id="id">
+<div class="thisBox">
+<p>This is the first paragraph.</p>
+<ul>
+<li>This is a list item.</li>
+</ul>
+<div class="special">
+<h3>This is a subheading</h3>
+<p>This is the second paragraph.</p>
+<p>This is the third paragraph.</p>
+</div>
+<div class="a">
+<p>This is the fourth paragraph.</p>
+<input type="button" value="Example Button"/>
+</div>
+</div>
+
+<p><strong>Rule applied:</strong> <code> #a { color: red }</code></p>
+<p>An ID selector applies the specified styling to any element that has a specified ID the same as the selector. ID selectors are indicated by a preceding #.</p> 
+<p>IDs are specified inside HTML tags, with their names decided by the writer: <code>&lt;div id="a"&gt;</code></p>
+<p>ID selectors are very specific due to being based on exact values.</p>
+<p>Any IDs on a webpage should be unique; there should only be one element with a certain ID name.</p>
+</div>
+
+<hr/>
+
+<h3>Type</h3>
+<div id="type">
+ 
+
+<div class="thisBox">
+<p>This is the first paragraph.</p>
+<ul>
+<li>This is a list item.</li>
+</ul>
+<div class="special">
+<h3>This is a subheading</h3>
+<p>This is the second paragraph.</p>
+<p>This is the third paragraph.</p>
+</div>
+<div class="a">
+<p>This is the fourth paragraph.</p>
+<input type="button" value="Example Button"/>
+</div>
+
+</div>
+
+
+<p><strong>Rule applied:</strong> <code> p { color: red }</code></p>
+<p>A type selector indicates that all elements of the specified type will receive the specified styling. It is denoted by the the name of the tag you are wishing to style; for example, a selector of <code>ul</code> would style all <code>ul</code> elements.</p>
+
+</div>
+
+<hr/>
+<h3>Descendant</h3>
+<div id="descendant">
+ 
+
+<div class="thisBox">
+<p>This is the first paragraph.</p>
+<ul>
+<li>This is a list item.</li>
+</ul>
+<div class="special">
+<h3>This is a subheading</h3>
+<p>This is the second paragraph.</p>
+<p>This is the third paragraph.</p>
+</div>
+<div class="a">
+<p>This is the fourth paragraph.</p>
+<input type="button" value="Example Button"/>
+</div>
+</div>
+
+<p><strong>Rule applied:</strong> <code> .thisBox p { color: red }</code></p>
+<p>Descendant selectors allow the combination of multiple selectors to be even more specific with styling. Selectors are combined by writing one after the other.</p> 
+<p>The descending element does not have to be an immediate child. This means that there could be another element wrapping the element to be styled and the styling would still be applied.</p>
+
+</div>
+
+<hr/>
+
+<h3>Child</h3>
+
+<div id="child">
+ 
+<div class="thisBox">
+<p>This is the first paragraph.</p>
+<ul>
+<li>This is a list item.</li>
+</ul>
+<div class="special">
+<h3>This is a subheading</h3>
+<p>This is the second paragraph.</p>
+<p>This is the third paragraph.</p>
+</div>
+<div class="a">
+<p>This is the fourth paragraph.</p>
+<input type="button" value="Example Button"/>
+</div>
+</div>
+
+
+<p><strong>Rule applied:</strong> <code> #thisBox > p { color: red }</code></p>
+<p>Child selectors allow for the combination of multiple selectors to be even more specific with styling. However the descendants have to be immediate children, and cannot be wrapped in another element or class.</p> 
+<p>Descending elements are preceded by a >.</p> 
+</div>
+
+<hr/>
+
+<h3>Sibling</h3>
+<div id="sibling">
+ 
+
+<div class="thisBox">
+<p>This is the first paragraph.</p>
+<ul>
+<li>This is a list item.</li>
+</ul>
+<div class="special">
+<h3>This is a subheading</h3>
+<p>This is the second paragraph.</p>
+<p>This is the third paragraph.</p>
+</div>
+<div class="a">
+<p>This is the fourth paragraph.</p>
+<input type="button" value="Example Button"/>
+</div>
+</div>
+
+
+<p><strong>Rule applied:</strong> <code> p ~ ul { color: red }</code></p>
+<p>A sibling selector will apply the specified styling to elements that are beside each other in the HTML.</p> 
+<p>Sibling selectors are denoted by a ~ between the two elements. The second element is the one that the style will be applied to.</p>
+<p>The element to be styled does not have to be an immediate sibling; as long as it has a common parent of the first listed element, the styling will be applied.</p>
+
+</div>
+
+<hr/>
+
+<h3>Adjacent Sibling</h3>
+<div id="adsibling">
+ 
+<div class="changingtext">
+<div class="thisBox">
+<p>This is the first paragraph.</p>
+<ul>
+<li>This is a list item.</li>
+</ul>
+<div class="special">
+<h3>This is a subheading</h3>
+<p>This is the second paragraph.</p>
+<p>This is the third paragraph.</p>
+</div>
+<div class="a">
+<p>This is the fourth paragraph.</p>
+<input type="button" value="Example Button"/>
+</div>
+</div>
+
+
+</div>
+<p><strong>Rule applied:</strong> <code> p + ul { color: red }</code></p>
+<p>An adjacent sibling selector will apply the specified styling to elements that are beside each other in the HTML. However the elements must be immediate siblings.</p>
+<p>Adjacent sibling selectors are denoted by a + between the two elements. The second listed element is the one which will be styled.</p>
+</div>
+
+<hr/>
+
+<h3>Attribute</h3>
+<div id="attribute">
+
+<div class="thisBox">
+<p>This is the first paragraph.</p>
+<ul>
+<li>This is a list item.</li>
+</ul>
+<div class="special">
+<h3>This is a subheading</h3>
+<p>This is the second paragraph.</p>
+<p>This is the third paragraph.</p>
+</div>
+<div class="a">
+<p>This is the fourth paragraph.</p>
+<input type="button" value="Example Button"/>
+</div>
+</div>
+
+<p><strong>Rule applied:</strong> <code> input[type=button] { color: red }</code></p>
+<p>An attribute selector applies the specified styling based on the presence and/or value of HTML attributes.</p>
+<p>Attribute selectors are denoted in square brackets.</p>
+</div>
+
+
+
+
+
+<hr/>
+
+<h3>Calculating Specifity</h3>
+<p>Some selectors have higher specifity than others based on the basic types; ID is more specfic than class, which is more specific than tag.</p>
+<p>The exact specifity of a style rule can be calculated by a way of counting the number of ID, class and tag selectors. The higher value determined, the more specific a rule is. The table below shows how these values can be determined.</p>
+
+<p id="image"><img src="Images/scalc.png" alt="A table showing how the specificity of a rule can be determined."/><br/>
+<span id="caption">Table image taken from CSC1026 notes.</span>
+</p>
+</noscript>
+</div>
+ 
+
+
+
+
+<p class="space"></p>
+<div id="footer">
+<div class="left">
+<img id="l" src="Images/arrow-left.png" onclick="moveLeft()" alt="Go back"></img>
+
+</div>
+
+<div class="right">
+<img id="r" src="Images/arrow-right.png" onclick="moveRight()" alt="Go forward"></img>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">setup()</script>
+
+</body>
+</html>
